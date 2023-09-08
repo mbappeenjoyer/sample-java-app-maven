@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="5f4acb6a-efa6-408f-b795-d1a588b4473d" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>GH App - Maven</name>
+  <parameters>
+    <param name="teamcity.internal.webhooks.BUILD_INTERRUPTED.fields" value="fields=buildTypeId" />
+    <param name="teamcity.internal.webhooks.events" value="BUILD_INTERRUPTED" />
+  </parameters>
+  <project-extensions>
+    <extension id="AwsIamRoleMavenGHApp" type="OAuthProvider">
+      <parameters>
+        <param name="awsConnectionId" value="AwsDcpc" />
+        <param name="awsCredentialsType" value="awsAssumeIamRole" />
+        <param name="awsIamRoleArn" value="arn:aws:iam::913206223978:role/dk-EC2-role" />
+        <param name="awsIamRoleSessionName" value="TeamCity-session" />
+        <param name="awsRegionName" value="us-east-1" />
+        <param name="awsSessionCredentials" value="true" />
+        <param name="awsSessionDuration" value="60" />
+        <param name="awsStsEndpoint" value="https://sts.us-east-1.amazonaws.com" />
+        <param name="displayName" value="AWS-IAM-Role-MavenGHApp" />
+        <param name="providerType" value="AWS" />
+      </parameters>
+    </extension>
+    <extension id="PROJECT_EXT_17" type="IssueTracker">
+      <parameters>
+        <param name="authType" value="storedToken" />
+        <param name="name" value="Valrravn/sample-java-app-maven" />
+        <param name="pattern" value="#(\d+)" />
+        <param name="repository" value="https://github.com/Valrravn/sample-java-app-maven" />
+        <param name="secure:accessToken" value="" />
+        <param name="secure:password" value="" />
+        <param name="tokenId" value="tc_token_id:CID_3083460fe032c30a4d92650323e03492:-1:c3665e56-8878-4dba-b226-170a2124938f" />
+        <param name="type" value="GithubIssues" />
+        <param name="username" value="" />
+      </parameters>
+    </extension>
+    <extension id="PROJECT_EXT_43" type="versionedSettings">
+      <parameters>
+        <param name="buildSettings" value="ALWAYS_USE_CURRENT" />
+        <param name="credentialsStorageType" value="credentialsJSON" />
+        <param name="enabled" value="true" />
+        <param name="rootId" value="GhAppMaven_HttpsGithubComValrravnSampleJavaAppMavenRefsHeadsMain" />
+        <param name="showChanges" value="false" />
+      </parameters>
+    </extension>
+  </project-extensions>
+  <cleanup />
+</project>
+
