@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.PullRequests
 import jetbrains.buildServer.configs.kotlin.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
+import jetbrains.buildServer.configs.kotlin.buildFeatures.vcsLabeling
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.projectFeatures.awsConnection
@@ -110,6 +111,10 @@ object Build : BuildType({
                 authType = vcsRoot()
                 filterAuthorRole = PullRequests.GitHubRoleFilter.EVERYBODY
             }
+        }
+        vcsLabeling {
+            vcsRootId = "${DslContext.settingsRoot.id}"
+            labelingPattern = "%teamcity.agent.jvm.os.name%"
         }
     }
 })
