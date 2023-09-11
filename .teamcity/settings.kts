@@ -114,7 +114,7 @@ object Build : BuildType({
         }
         vcsLabeling {
             vcsRootId = "${DslContext.settingsRoot.id}"
-            labelingPattern = "%teamcity.agent.jvm.os.name%"
+            labelingPattern = "build-%build.number%"
         }
     }
 })
