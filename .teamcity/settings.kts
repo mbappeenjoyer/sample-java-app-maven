@@ -114,7 +114,7 @@ object Build : BuildType({
         }
         vcsLabeling {
             vcsRootId = "${DslContext.settingsRoot.id}"
-            labelingPattern = "build-%build.number%"
+            labelingPattern = "%release.status%"
         }
     }
 })
