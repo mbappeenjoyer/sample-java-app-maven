@@ -68,6 +68,10 @@ object Build : BuildType({
 
     allowExternalStatus = true
 
+    params {
+        param("release.status", "EAP")
+    }
+
     vcs {
         root(DslContext.settingsRoot)
 
