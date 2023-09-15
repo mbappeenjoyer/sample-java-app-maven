@@ -69,6 +69,8 @@ object Build : BuildType({
     allowExternalStatus = true
 
     params {
+        checkbox("newparam", "true", label = "dadada", description = "Dada", display = ParameterDisplay.HIDDEN,
+                  checked = "true")
         param("release.status", "EAP")
     }
 
